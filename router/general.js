@@ -134,18 +134,15 @@ public_users.get("/async/books", (req, res) => {
 });
 
 // ── Task 11 – Get book by ISBN (Axios + async/await) ────────────────────────
-public_users.get("/async/isbn/:isbn", async (req, res) => {
-  try {
-    const { isbn } = req.params;
-    const response = await axios.get(`${BASE_URL}/isbn/${isbn}`);
-    return res.status(200).json(response.data);
-  } catch (err) {
-    const status = err.response ? err.response.status : 500;
-    const message = err.response
-      ? err.response.data.message
-      : "Failed to fetch book.";
-    return res.status(status).json({ message });
-  }
+public_users.get("/async/isbn/:isbn", (req, res) => {
+  axios
+    .get(`${BASE_URL}/isbn/${req.params.isbn}`)
+    .then((response) => {
+      return res.status(200).json(response.data);
+    })
+    .catch((err) => {
+      return res.status(500).json({ message: err.message });
+    });
 });
 
 // ── Task 12 – Get books by author (Axios + async/await) ─────────────────────
