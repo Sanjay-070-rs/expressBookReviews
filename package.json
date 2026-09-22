@@ -1,0 +1,22 @@
+{
+  "name": "expressBookReviews",
+  "version": "1.0.0",
+  "description": "IBM Coursera Final Project – Express Book Reviews REST API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "author": "IBM Coursera Student",
+  "license": "Apache-2.0"
+}
